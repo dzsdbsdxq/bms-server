@@ -1,0 +1,4 @@
+[bms-server]2024/04/21 - 03:26:59.511	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/21 - 03:27:00.899	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/21 - 03:27:00.900	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/21 - 03:27:00.900	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}

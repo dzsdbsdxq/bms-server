@@ -1,0 +1,4 @@
+[bms-server]2024/04/17 - 09:11:14.238	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/gorm.go:63	register table failed	{"error": "Error 1406 (22001): Data too long for column 'page_params' at row 1"}
+[bms-server]2024/04/17 - 09:13:07.982	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/gorm.go:63	register table failed	{"error": "Error 1406 (22001): Data too long for column 'page_params' at row 1"}
+[bms-server]2024/04/17 - 09:13:37.820	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/gorm.go:63	register table failed	{"error": "Error 1406 (22001): Data too long for column 'page_params' at row 1"}
+[bms-server]2024/04/17 - 19:42:44.709	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:39	accept tcp [::]:8888: use of closed network connection

@@ -1,0 +1,22 @@
+[bms-server]2024/04/20 - 00:23:34.105	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/20 - 00:23:34.165	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 09:03:34.517	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/20 - 09:03:34.543	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 09:03:48.414	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 09:03:48.454	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 09:21:24.480	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 09:21:24.517	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 17:40:13.248	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/20 - 17:40:13.288	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/20 - 17:40:27.092	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 17:40:27.146	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 18:51:05.084	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 18:51:05.200	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 18:51:27.646	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 18:51:27.768	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 23:06:28.154	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/20 - 23:06:28.216	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 23:06:45.458	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 23:06:45.483	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 23:06:56.958	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/20 - 23:06:56.981	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}

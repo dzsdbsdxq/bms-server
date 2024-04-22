@@ -1,0 +1,6 @@
+[bms-server]2024/04/19 - 11:48:19.292	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/19 - 11:48:19.362	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/19 - 11:48:33.119	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/19 - 11:48:33.274	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/19 - 20:28:50.995	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:39	accept tcp [::]:8888: use of closed network connection
+[bms-server]2024/04/19 - 20:29:47.445	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:39	accept tcp [::]:8888: use of closed network connection

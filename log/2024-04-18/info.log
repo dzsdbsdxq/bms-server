@@ -1,0 +1,174 @@
+[bms-server]2024/04/18 - 10:17:15.573	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 10:17:15.583	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 10:17:15.583	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 10:17:48.169	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 10:17:48.181	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 10:17:48.181	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 15:11:48.430	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 15:11:48.434	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 15:11:48.445	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 15:11:48.445	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 15:33:47.060	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 15:33:47.061	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 15:33:47.071	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 15:33:47.072	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 15:35:04.094	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 15:35:04.094	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 15:35:04.105	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 15:35:04.105	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 16:41:10.627	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 16:41:10.629	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 16:41:10.639	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 16:41:10.639	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 16:51:40.325	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 16:51:40.326	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 16:51:40.335	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 16:51:40.335	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 16:53:10.791	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 16:53:10.792	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 16:53:10.802	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 16:53:10.802	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 16:59:39.329	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 16:59:39.330	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 16:59:39.340	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 16:59:39.341	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 17:00:09.479	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 17:00:09.480	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 17:00:09.490	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 17:00:09.491	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 17:00:48.690	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 17:00:48.691	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 17:00:48.705	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 17:00:48.708	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 17:08:36.550	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 17:08:36.555	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 17:08:36.565	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 17:08:36.565	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 17:16:00.150	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 17:16:00.151	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 17:16:00.162	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 17:16:00.163	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 17:23:33.636	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 17:23:33.638	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 17:23:33.652	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 17:23:33.653	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 17:35:14.019	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 17:35:14.021	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 17:35:14.033	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 17:35:14.034	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 17:36:55.938	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 17:36:55.939	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 17:36:55.949	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 17:36:55.950	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 17:37:39.605	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 17:37:39.608	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 17:37:39.618	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 17:37:39.619	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 17:38:38.685	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 17:38:38.686	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 17:38:38.700	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 17:38:38.701	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 17:45:30.964	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 17:45:30.965	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 17:45:30.975	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 17:45:30.976	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 17:47:58.299	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 17:47:58.300	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 17:47:58.311	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 17:47:58.312	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 17:51:04.324	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 17:51:04.326	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 17:51:04.337	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 17:51:04.338	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:20:31.479	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:20:31.481	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:20:31.492	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:20:31.492	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:21:26.904	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:21:26.905	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:21:26.916	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:21:26.917	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:25:29.075	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:25:29.077	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:25:29.087	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:25:29.087	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:32:17.575	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:32:17.577	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:32:17.591	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:32:17.591	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:34:40.907	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:34:40.908	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:34:40.923	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:34:40.924	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:35:35.260	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:35:35.261	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:35:35.273	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:35:35.274	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:35:49.961	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:35:49.963	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:35:49.974	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:35:49.974	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:36:30.847	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:36:30.848	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:36:30.859	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:36:30.860	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:37:03.894	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:37:03.896	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:37:03.908	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:37:03.908	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:37:13.321	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:37:13.322	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:37:13.333	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:37:13.334	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:37:25.272	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:37:25.273	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:37:25.283	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:37:25.284	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:38:19.321	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:38:19.323	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:38:19.334	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:38:19.335	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:39:31.084	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:39:31.085	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:39:31.096	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:39:31.096	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:40:19.366	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:40:19.368	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:40:19.378	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:40:19.378	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:40:42.579	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:40:42.580	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:40:42.591	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:40:42.591	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:41:02.453	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:41:02.454	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:41:02.464	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:41:02.465	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:41:21.796	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:41:21.797	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:41:21.811	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:41:21.812	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:41:41.809	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:41:41.810	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:41:41.821	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:41:41.821	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:43:17.874	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:43:17.875	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:43:17.886	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:43:17.886	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:48:54.825	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:48:54.826	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:48:54.837	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:48:54.838	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:49:10.245	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:49:10.247	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:49:10.257	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:49:10.258	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:49:14.134	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:49:14.135	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:49:14.146	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:49:14.146	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/18 - 18:49:19.527	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/18 - 18:49:19.529	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/18 - 18:49:19.539	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/18 - 18:49:19.539	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}

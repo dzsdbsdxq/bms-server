@@ -1,0 +1,51 @@
+[bms-server]2024/04/17 - 09:15:05.327	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 09:15:05.342	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 09:15:05.342	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 09:30:22.306	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 09:30:22.320	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 09:30:22.321	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 09:31:02.444	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 09:31:02.461	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 09:31:02.462	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 11:18:18.032	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 11:18:18.104	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 11:18:18.108	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 11:18:49.477	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 11:18:49.621	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 11:18:49.622	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 13:26:19.395	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 13:26:19.406	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 13:26:19.406	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 13:26:51.815	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 13:26:51.828	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 13:26:51.828	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 13:27:58.667	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 13:27:58.678	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 13:27:58.678	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 13:34:28.473	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 13:34:28.488	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 13:34:28.488	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 13:55:25.988	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 13:55:26.006	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 13:55:26.006	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 13:55:33.455	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 13:55:33.479	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 13:55:33.480	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 13:56:29.303	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 13:56:29.315	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 13:56:29.315	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 13:56:42.879	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 13:56:42.894	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 13:56:42.895	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 14:02:47.273	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 14:02:47.284	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 14:02:47.285	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 14:04:34.050	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 14:04:34.062	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 14:04:34.062	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 14:05:24.559	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 14:05:24.574	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 14:05:24.574	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/17 - 19:42:44.707	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/17 - 19:42:44.708	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/initialize/router.go:125	router register success
+[bms-server]2024/04/17 - 19:42:44.708	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:37	server run success on 	{"address": ":8888"}

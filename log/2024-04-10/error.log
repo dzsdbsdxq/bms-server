@@ -1,0 +1,27 @@
+[bms-server]2024/04/10 - 11:45:29.207	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/10 - 11:45:29.242	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/10 - 11:45:43.055	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/10 - 11:45:43.246	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/10 - 14:34:08.749	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/10 - 14:34:08.811	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/10 - 14:34:08.827	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/10 - 14:34:08.863	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/10 - 16:32:43.279	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:49	accept tcp [::]:8888: use of closed network connection
+[bms-server]2024/04/10 - 16:43:00.338	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/email/api/sys_email.go:24	发送失败!	{"error": "550 User has no permission"}
+[bms-server]2024/04/10 - 16:47:19.931	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "Username值不能为空"}
+[bms-server]2024/04/10 - 16:51:36.977	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "Username值不能为空"}
+[bms-server]2024/04/10 - 16:51:47.105	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "Password值不能为空"}
+[bms-server]2024/04/10 - 16:52:02.488	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "CaptchaId值不能为空"}
+[bms-server]2024/04/10 - 16:53:55.553	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "CaptchaId值不能为空"}
+[bms-server]2024/04/10 - 16:54:17.107	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "CaptchaId值不能为空"}
+[bms-server]2024/04/10 - 16:54:39.006	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "验证码错误"}
+[bms-server]2024/04/10 - 16:54:47.463	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "验证码错误"}
+[bms-server]2024/04/10 - 17:45:23.260	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "验证码错误"}
+[bms-server]2024/04/10 - 17:48:29.081	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "验证码错误"}
+[bms-server]2024/04/10 - 17:48:59.014	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "验证码错误"}
+[bms-server]2024/04/10 - 18:39:58.428	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/service/system/sys_casbin.go:162	适配数据库失败请检查casbin表是否为InnoDB引擎!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/10 - 18:56:39.488	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:39	accept tcp [::]:8888: use of closed network connection
+[bms-server]2024/04/10 - 19:40:15.949	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/members/sys_members.go:142	获取失败!	{"error": "sql: Scan error on column index 10, name \"age\": sql/driver: couldn't convert 32 into type bool"}
+[bms-server]2024/04/10 - 19:40:18.552	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/members/sys_members.go:142	获取失败!	{"error": "sql: Scan error on column index 10, name \"age\": sql/driver: couldn't convert 32 into type bool"}
+[bms-server]2024/04/10 - 19:40:25.547	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/members/sys_members.go:142	获取失败!	{"error": "sql: Scan error on column index 10, name \"age\": sql/driver: couldn't convert 32 into type bool"}
+[bms-server]2024/04/10 - 19:42:55.795	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:39	accept tcp [::]:8888: use of closed network connection

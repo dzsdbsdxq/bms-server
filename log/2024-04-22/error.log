@@ -1,0 +1,8 @@
+[bms-server]2024/04/22 - 10:04:01.769	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:39	net.Listen error: listen tcp :8888: bind: address already in use
+[bms-server]2024/04/22 - 11:49:14.283	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/22 - 11:49:14.319	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/22 - 11:49:27.349	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/22 - 11:49:27.480	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/22 - 13:38:18.772	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/22 - 13:38:18.799	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/22 - 19:09:04.131	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:39	accept tcp [::]:8888: use of closed network connection

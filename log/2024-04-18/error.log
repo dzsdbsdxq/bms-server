@@ -1,0 +1,21 @@
+[bms-server]2024/04/18 - 10:17:15.584	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:39	net.Listen error: listen tcp :8888: bind: address already in use
+[bms-server]2024/04/18 - 11:51:48.172	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/18 - 11:51:48.197	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/18 - 11:52:02.075	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/18 - 11:52:02.107	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/18 - 13:16:17.737	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "Error 1053 (08S01): Server shutdown in progress"}
+[bms-server]2024/04/18 - 13:16:17.812	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/18 - 15:11:44.877	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:39	accept tcp [::]:8888: use of closed network connection
+[bms-server]2024/04/18 - 16:43:04.942	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "Username值不能为空"}
+[bms-server]2024/04/18 - 16:43:34.566	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "Password值不能为空"}
+[bms-server]2024/04/18 - 16:43:46.115	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "CaptchaId值不能为空"}
+[bms-server]2024/04/18 - 16:45:56.563	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "两次密码不正确"}
+[bms-server]2024/04/18 - 16:46:22.383	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "验证码错误"}
+[bms-server]2024/04/18 - 16:48:44.315	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "验证码错误"}
+[bms-server]2024/04/18 - 16:49:03.223	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "用户名已注册"}
+[bms-server]2024/04/18 - 16:49:17.960	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "验证码错误"}
+[bms-server]2024/04/18 - 17:09:51.436	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:43	失败!	{"error": "Username值不能为空"}
+[bms-server]2024/04/18 - 17:16:17.559	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:43	失败!	{"error": "Password值不能为空"}
+[bms-server]2024/04/18 - 17:16:31.985	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:43	失败!	{"error": "CaptchaId值不能为空"}
+[bms-server]2024/04/18 - 17:16:53.657	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:43	失败!	{"error": "Username值不能为空"}
+[bms-server]2024/04/18 - 18:43:41.149	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:45	失败!	{"error": "验证码错误"}

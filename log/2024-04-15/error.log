@@ -1,0 +1,12 @@
+[bms-server]2024/04/15 - 09:13:20.775	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:39	accept tcp [::]:8888: use of closed network connection
+[bms-server]2024/04/15 - 10:58:26.146	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/15 - 10:58:26.254	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/15 - 10:58:38.274	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_menu.go:29	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/15 - 10:58:38.420	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/api/v1/system/sys_user.go:437	获取失败!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/15 - 11:41:22.903	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:39	accept tcp [::]:8888: use of closed network connection
+[bms-server]2024/04/15 - 11:41:40.702	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/plugin/members/api/api.go:24	失败!	{"error": "Username值不能为空"}
+[bms-server]2024/04/15 - 11:52:31.304	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/service/system/sys_casbin.go:162	适配数据库失败请检查casbin表是否为InnoDB引擎!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}
+[bms-server]2024/04/15 - 12:15:19.452	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:39	accept tcp [::]:8888: use of closed network connection
+[bms-server]2024/04/15 - 14:45:49.179	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:43	accept tcp [::]:8888: use of closed network connection
+[bms-server]2024/04/15 - 15:42:29.746	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/core/server.go:43	accept tcp [::]:8888: use of closed network connection
+[bms-server]2024/04/15 - 18:28:16.800	[31merror[0m	/Users/lishoujie/GolandProjects/bms/server/service/system/sys_casbin.go:162	适配数据库失败请检查casbin表是否为InnoDB引擎!	{"error": "dial tcp 127.0.0.1:3306: connect: connection refused"}

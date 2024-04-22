@@ -1,0 +1,40 @@
+{
+  "theme": {
+    "name": "jackie",
+    "version": 1.0,
+    "author": "jackie",
+    "link": "https://www.haoba.cc/"
+  },
+  "pages": {
+    "BackgroundImage": {
+      "type": "image",
+      "label": "背景图",
+      "value": "http://10.86.8.21:8888/templates/jacikes/assets/images/bg.png"
+    },
+    "LunPanBackgroundImageTop": {
+      "type": "text",
+      "label": "转盘距顶部高度",
+      "value": "30%"
+    },
+    "ShowLuckyDrawNum": {
+      "type": "radio",
+      "label": "是否显示剩余抽奖数量",
+      "value": false,
+      "radio": [
+        {
+          "value": true,
+          "label": "是"
+        },
+        {
+          "value": false,
+          "label": "否"
+        }
+      ]
+    }
+  }
+}
+
+
+
+
+
