@@ -2,3 +2,7 @@
 [bms-server]2024/04/23 - 14:27:27.459	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/bms-server/initialize/router.go:65	register swagger handler
 [bms-server]2024/04/23 - 14:27:27.482	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/bms-server/initialize/router.go:125	router register success
 [bms-server]2024/04/23 - 14:27:27.484	[34minfo[0m	/Users/lishoujie/GolandProjects/bms/bms-server/core/server.go:37	server run success on 	{"address": ":8888"}
+[bms-server]2024/04/23 - 21:56:46.197	[34minfo[0m	/home/szmg/GolandProjects/bms-server/initialize/redis.go:34	redis connect ping response:	{"pong": "PONG"}
+[bms-server]2024/04/23 - 21:56:46.220	[34minfo[0m	/home/szmg/GolandProjects/bms-server/initialize/router.go:65	register swagger handler
+[bms-server]2024/04/23 - 21:56:46.234	[34minfo[0m	/home/szmg/GolandProjects/bms-server/initialize/router.go:125	router register success
+[bms-server]2024/04/23 - 21:56:46.234	[34minfo[0m	/home/szmg/GolandProjects/bms-server/core/server.go:37	server run success on 	{"address": ":8888"}

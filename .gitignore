@@ -3,3 +3,4 @@
 config.yaml
 db_bms_system.sql
 bms-server
+log
