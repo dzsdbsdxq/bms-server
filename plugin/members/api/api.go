@@ -6,10 +6,10 @@ import (
 	"bms-server/model/common/response"
 	"bms-server/plugin/members/model"
 	"bms-server/plugin/members/service"
-	serv2 "bms-server/service"
-	"bms-server/utils"
+	"bms-server/service/wheel"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
+	"sync"
 )
 
 type PluginMemberApi struct{}
@@ -59,9 +59,56 @@ func (p *PluginMemberApi) Login(c *gin.Context) {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
 // @Router /members/memberInfo[post]
 func (p *PluginMemberApi) GetMemberInfo(c *gin.Context) {
-	memberInfo := utils.GetMemberInfo(c)
-	response.OkWithDetailed(memberInfo, "success", c)
-	serv2.ServiceGroupApp.WheelServiceGroup.InitAwardPool()
-	//service.ServiceGroup
-	//response.OkWithMessage("成功", c)
+	// memberInfo := utils.GetMemberInfo(c)
+	// response.OkWithDetailed(memberInfo, "success", c)
+	awards := make([]wheel.AwardBatchService, 0)
+	awards = append(awards, wheel.AwardBatchService{
+		WheelId:      1,
+		PrizeId:      1,
+		Uuid:         "u-1",
+		PrizeName:    "p-1",
+		TotalBalance: 100,
+		TotalAmount:  100,
+		UpdateTime:   0,
+		StartTime:    1713888257,
+		EndTime:      1713974657,
+	}, wheel.AwardBatchService{
+		WheelId:      1,
+		PrizeId:      2,
+		Uuid:         "u-2",
+		PrizeName:    "p-2",
+		TotalBalance: 200,
+		TotalAmount:  200,
+		UpdateTime:   0,
+		StartTime:    1713888257,
+		EndTime:      1713974657,
+	}, wheel.AwardBatchService{
+		WheelId:      1,
+		PrizeId:      3,
+		Uuid:         "u-3",
+		PrizeName:    "p-3",
+		TotalBalance: 300,
+		TotalAmount:  300,
+		UpdateTime:   0,
+		StartTime:    1713888257,
+		EndTime:      1713974657,
+	})
+
+	var wg sync.WaitGroup
+	for _, aw := range awards {
+		aw := aw
+		wg.Add(1)
+		go func(aw wheel.AwardBatchService) {
+			wheel.InitAwardPool(&aw)
+			wg.Done()
+		}(aw)
+	}
+	wg.Wait()
+
+	response.OkWithMessage("成功", c)
+}
+
+func (p *PluginMemberApi) GetAwardInfo(c *gin.Context) {
+	aw := wheel.WinPrize(1)
+	response.OkWithDetailed(aw, "success", c)
 }

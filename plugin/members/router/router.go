@@ -15,5 +15,6 @@ func (s *PluginMemberRouter) InitRegisterRouter(Router *gin.RouterGroup) {
 		Router.POST("register", plugApi.Register)
 		Router.POST("login", plugApi.Login)
 		Router.POST("memberInfo", middleware.JWTMemberAuth(), plugApi.GetMemberInfo)
+		Router.POST("getAwardInfo", middleware.JWTMemberAuth(), plugApi.GetAwardInfo)
 	}
 }
