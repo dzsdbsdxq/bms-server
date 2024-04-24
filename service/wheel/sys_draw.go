@@ -4,6 +4,7 @@ import (
 	"bms-server/global"
 	"context"
 	"fmt"
+	jsoniter "github.com/json-iterator/go"
 	"github.com/redis/go-redis/v9"
 	"go.uber.org/zap"
 	"log"
@@ -49,14 +50,18 @@ func getAwardInfoKey(wheelId int) string {
 func getAwardBalanceKey(wheelId int) string {
 	return fmt.Sprintf("awardBalance_%d", wheelId)
 }
-
+func getAwardSourceInfoKey(wheelId int) string {
+	return fmt.Sprintf("awardSourceInfo_%d", wheelId)
+}
 func InitAwardPool(award *AwardBatchService) {
-
+	awardJson, _ := jsoniter.Marshal(award)
 	global.GVA_REDIS.ZAdd(context.Background(), getAwardInfoKey(award.WheelId), redis.Z{
 		Score:  float64(time.Now().Unix()),
 		Member: award.PrizeId,
 	})
+
 	global.GVA_REDIS.HSet(context.Background(), getAwardBalanceKey(award.WheelId), award.PrizeId, award.TotalBalance)
+	global.GVA_REDIS.HSet(context.Background(), getAwardSourceInfoKey(award.WheelId), award.PrizeId, string(awardJson))
 }
 
 func GetAwardBatch(wheelId int) *AwardBatchService {
@@ -65,6 +70,7 @@ func GetAwardBatch(wheelId int) *AwardBatchService {
 		log.Println("sorry, you didn't win the prize.")
 		return nil
 	}
+	fmt.Println("中奖：", awardBatch)
 
 	// 判断是否到达奖品释放时间点
 	random := rand.New(rand.NewSource(awardBatch.UpdateTime))
@@ -85,10 +91,11 @@ func GetAwardBatch(wheelId int) *AwardBatchService {
 
 func RandomGetAwardBatch(wheelId int) *AwardBatchService {
 	// global.GVA_REDIS.Int64Map()
-	retMap := global.GVA_REDIS.HGetAll(context.Background(), getAwardBalanceKey(wheelId))
+	retMap := global.GVA_REDIS.HGetAll(context.Background(), getAwardBalanceKey(wheelId)).Val()
 	totalBalance := int64(0)
 	fmt.Println("retMap:", retMap)
-	for _, value := range retMap.Val() {
+	for index, value := range retMap {
+		fmt.Println("retMapretMapretMapretMap:", index, value)
 		i, _ := strconv.ParseInt(value, 10, 64)
 		totalBalance += i
 	}
@@ -101,7 +108,8 @@ func RandomGetAwardBatch(wheelId int) *AwardBatchService {
 
 	awardBatches := GetAllAwardBatch(wheelId)
 	for index, awardBatch := range awardBatches {
-		awardBatches[index].TotalBalance = awardBatch.TotalBalance
+		fmt.Println("retMap[awardBatch.PrizeId]:", retMap[strconv.Itoa(awardBatch.PrizeId)])
+		awardBatches[index].TotalBalance, _ = strconv.ParseInt(retMap[strconv.Itoa(awardBatch.PrizeId)], 10, 64) //awardBatch.TotalBalance //retMap[strconv.Itoa(awardBatch.PrizeId)]
 	}
 	log.Println("awardBatches :", awardBatches)
 
@@ -136,34 +144,24 @@ func GetAllAwardBatch(wheelId int) []AwardBatchService {
 		log.Println("get all award redis error ")
 	}
 	fmt.Println("values:", values)
-
-	for index, value := range values {
-		fmt.Println("value.Member:", value.Member, value.Member.(string))
-		if index%2 == 0 {
-			parseInt, err := strconv.ParseInt(value.Member.(string), 10, 64)
-			if err != nil {
-				return nil
-			}
-			awardBatches = append(awardBatches, AwardBatchService{
-				PrizeId: int(parseInt),
-			})
-		} else {
-			lastUpdateTime, _ := strconv.ParseInt(value.Member.(string), 10, 64)
-			fmt.Println("lastUpdateTime:", lastUpdateTime)
-			awardBatches[index/2].UpdateTime = lastUpdateTime
-
-		}
+	awardSourceInfoStr := global.GVA_REDIS.HGetAll(context.Background(), getAwardSourceInfoKey(wheelId)).Val()
+	fmt.Println(awardSourceInfoStr)
+	var aw AwardBatchService
+	for _, value := range values {
+		parseInt, _ := strconv.ParseInt(value.Member.(string), 10, 64)
+		_ = jsoniter.UnmarshalFromString(awardSourceInfoStr[strconv.FormatInt(parseInt, 10)], &aw)
+		awardBatches = append(awardBatches, AwardBatchService{
+			WheelId:     aw.WheelId,
+			Uuid:        aw.Uuid,
+			PrizeName:   aw.PrizeName,
+			PrizeId:     int(parseInt),
+			UpdateTime:  int64(value.Score),
+			TotalAmount: aw.TotalAmount,
+			StartTime:   aw.StartTime,
+			EndTime:     aw.EndTime,
+		})
 	}
-	fmt.Println("awardBatches:", awardBatches)
-
-	// 填充 totalAmount
-	for index, awardBatch := range awardBatches {
-		awardBatches[index].TotalAmount = awardBatch.TotalAmount
-	}
-	fmt.Println("awardBatches2:", awardBatches)
-
 	return awardBatches
-
 }
 
 func WinPrize(wheelId int) *AwardBatchService {
@@ -174,7 +172,9 @@ func WinPrize(wheelId int) *AwardBatchService {
 	}
 	fmt.Println("awardBatch:", awardBatch)
 
-	err := global.GVA_REDIS.Watch(context.Background(), nil, getAwardBalanceKey(awardBatch.WheelId))
+	err := global.GVA_REDIS.Watch(context.Background(), func(tx *redis.Tx) error {
+		return nil
+	}, getAwardBalanceKey(awardBatch.WheelId))
 	if err != nil {
 		return nil
 	}
