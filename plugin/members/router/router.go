@@ -1,7 +1,6 @@
 package router
 
 import (
-	"bms-server/middleware"
 	"bms-server/plugin/members/api"
 	"github.com/gin-gonic/gin"
 )
@@ -14,7 +13,9 @@ func (s *PluginMemberRouter) InitRegisterRouter(Router *gin.RouterGroup) {
 	{
 		Router.POST("register", plugApi.Register)
 		Router.POST("login", plugApi.Login)
-		Router.POST("memberInfo", middleware.JWTMemberAuth(), plugApi.GetMemberInfo)
-		Router.POST("getAwardInfo", middleware.JWTMemberAuth(), plugApi.GetAwardInfo)
+		//middleware.JWTMemberAuth(),
+		Router.POST("memberInfo", plugApi.GetMemberInfo)
+		// middleware.JWTMemberAuth(),
+		Router.POST("getAwardInfo", plugApi.GetAwardInfo)
 	}
 }

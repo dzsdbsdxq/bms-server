@@ -2,19 +2,25 @@ package api
 
 import (
 	"bms-server/global"
+	"bms-server/model/common/response"
 	wheelPrizesReq "bms-server/model/wheelPrizes/request"
+	"bms-server/plugin/wheels/model"
 	"bms-server/service"
+	"bms-server/service/wheel"
+	"bms-server/utils"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	jsoniter "github.com/json-iterator/go"
 	"net/http"
 	"text/template"
+	"time"
 )
 
 type WheelApi struct{}
 
 var sysWheelsService = service.ServiceGroupApp.WheelServiceGroup.SysWheelsService
 var sysWheelsPrizeService = service.ServiceGroupApp.WheelPrizesServiceGroup.SysWheelPrizesService
+var sysWheelsRecordsService = service.ServiceGroupApp.WheelRecordsServiceGroup.SysWheelRecordsService
 
 func (w *WheelApi) IndexPage(c *gin.Context) {
 
@@ -67,4 +73,59 @@ func (w *WheelApi) IndexPage(c *gin.Context) {
 	//	"pageEdit": wheels.PageParams,
 	//	"prizes":   prizes,
 	//})
+}
+
+// Win 抽奖接口
+func (w *WheelApi) WheelWin(c *gin.Context) {
+	var wwr model.WheelWinRequest
+	err := c.ShouldBindJSON(&wwr)
+	if err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
+	// 查询该活动信息
+	wheels, err := sysWheelsService.GetSysWheels(wwr.WheelId)
+	if err != nil {
+		response.FailWithMessage("活动不存在", c)
+		return
+	}
+	//判断活动是否下架
+	if *wheels.Status == 1 {
+		response.FailWithMessage("活动不存在", c)
+		return
+	}
+	//判断活动时间是否开启
+	if time.Now().Before(*wheels.StartTime) {
+		response.FailWithMessage("活动未开始", c)
+		return
+	}
+	//判断活动时间是否结束
+	if time.Now().After(*wheels.EndTime) {
+		response.FailWithMessage("活动已结束", c)
+		return
+	}
+	records := sysWheelsRecordsService.GetSysWheelRecordsInfoListBy(int(wheels.ID), int(utils.GetMemberID(c)))
+
+	//判断用户每日可抽次数
+	if *wheels.DayGetNum > 0 {
+		if records != nil && len(records) >= *wheels.DayGetNum {
+			response.FailWithMessage("今日抽奖已达上限", c)
+			return
+		}
+	}
+	allowWinPrize := false
+	isHits := 0
+	// 判断用户是否中奖
+	for _, record := range records {
+		if *record.IsHit == 1 {
+			isHits++
+		}
+	}
+	//整场活动同一用户可中奖次数
+	if isHits >= *wheels.GetTotalNum {
+		//如果中奖已达上限，返回
+		allowWinPrize = true
+	}
+
+	aw := wheel.WinPrize(int(wheels.ID), allowWinPrize)
 }
