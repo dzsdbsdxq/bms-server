@@ -62,8 +62,8 @@ func InitAwardPool(award *AwardBatchService) {
 	global.GVA_REDIS.HSet(context.Background(), getAwardSourceInfoKey(award.WheelId), award.PrizeId, string(awardJson))
 }
 
-func GetAwardBatch(wheelId int) *AwardBatchService {
-	awardBatch := RandomGetAwardBatch(wheelId)
+func GetAwardBatch(wheelId int, allowWinPrize bool) *AwardBatchService {
+	awardBatch := RandomGetAwardBatch(wheelId, allowWinPrize)
 	if awardBatch == nil {
 		log.Println("sorry, you didn't win the prize.")
 		return nil
@@ -86,7 +86,7 @@ func GetAwardBatch(wheelId int) *AwardBatchService {
 	return awardBatch
 }
 
-func RandomGetAwardBatch(wheelId int) *AwardBatchService {
+func RandomGetAwardBatch(wheelId int, allowWinPrize bool) *AwardBatchService {
 	retMap := global.GVA_REDIS.HGetAll(context.Background(), getAwardBalanceKey(wheelId)).Val()
 	totalBalance := int64(0)
 	for _, value := range retMap {
@@ -157,7 +157,7 @@ func WinPrize(wheelId int, allowWinPrize bool) *AwardBatchService {
 	lock.Lock()
 
 	defer lock.Unlock()
-	awardBatch := GetAwardBatch(wheelId)
+	awardBatch := GetAwardBatch(wheelId, allowWinPrize)
 
 	if awardBatch == nil {
 		return awardBatch

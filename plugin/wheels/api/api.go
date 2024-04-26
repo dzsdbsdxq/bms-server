@@ -123,7 +123,7 @@ func (w *WheelApi) WheelWin(c *gin.Context) {
 	}
 	//整场活动同一用户可中奖次数
 	if isHits >= *wheels.GetTotalNum {
-		//如果中奖已达上限，返回
+		//如果中奖已达上限，返回未抽奖
 		allowWinPrize = true
 	}
 
