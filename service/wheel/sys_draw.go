@@ -6,10 +6,12 @@ import (
 	"fmt"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/redis/go-redis/v9"
+	"github.com/spf13/cast"
 	"go.uber.org/zap"
 	"log"
 	"math/rand"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
 )
@@ -19,10 +21,11 @@ var lock = sync.Mutex{}
 type AwardBatchService struct {
 	WheelId      int   //活动ID
 	PrizeId      int   //奖项ID
+	Probability  int   //概率
 	PrizeType    int   //奖项类型 0=虚拟，1=实物
 	IsHit        int   //中奖项，0=否，1=是
-	TotalBalance int64 // 剩余奖品总数
-	TotalAmount  int64 // 奖品总数
+	TotalBalance int   // 剩余奖品总数
+	TotalAmount  int   // 奖品总数
 	UpdateTime   int64 // 上次奖品发放时间
 	StartTime    int64
 	EndTime      int64
@@ -34,6 +37,8 @@ type AwardBatchService struct {
 func (award *AwardBatchService) SetAwardBatchService(aw *AwardBatchService) *AwardBatchService {
 	award.WheelId = aw.WheelId
 	award.PrizeId = aw.PrizeId
+	award.PrizeType = aw.PrizeType
+	award.Probability = aw.Probability
 	award.Uuid = aw.Uuid
 	award.PrizeName = aw.PrizeName
 	award.TotalBalance = aw.TotalBalance
@@ -64,11 +69,14 @@ func InitAwardPool(award *AwardBatchService) {
 	global.GVA_REDIS.HSet(context.Background(), getAwardSourceInfoKey(award.WheelId), award.PrizeId, string(awardJson))
 }
 
-func GetAwardBatch(wheelId int, allowWinPrize bool) *AwardBatchService {
-	awardBatch, noHitAwardBatchs := RandomGetAwardBatch(wheelId, allowWinPrize)
+func GetAwardBatch(wheelId int, allowWinPrize bool, algType int) *AwardBatchService {
+	awardBatch, noHitAwardBatchs := RandomGetAwardBatch(wheelId, allowWinPrize, algType)
+	tmpRd := rand.New(rand.NewSource(int64(len(noHitAwardBatchs))))
+	//中奖标志，默认设置未中奖项
+	prizeAwardBatch := noHitAwardBatchs[tmpRd.Int63n(int64(len(noHitAwardBatchs)))]
 	// 如果是不允许中奖，直接返回，无需判断奖品释放时间点
-	if !allowWinPrize {
-		return awardBatch
+	if !allowWinPrize || awardBatch == nil {
+		return prizeAwardBatch
 	}
 	// 判断是否到达奖品释放时间点
 	random := rand.New(rand.NewSource(awardBatch.UpdateTime))
@@ -81,22 +89,16 @@ func GetAwardBatch(wheelId int, allowWinPrize bool) *AwardBatchService {
 	if time.Now().Unix() < releaseTime {
 		// 未到达奖品释放的时间点，即不中奖，不中奖，返回谢谢参与
 		if len(noHitAwardBatchs) != 0 {
-			tmpRd := rand.New(rand.NewSource(int64(len(noHitAwardBatchs))))
-			return noHitAwardBatchs[tmpRd.Int63n(int64(len(noHitAwardBatchs)))]
+			return prizeAwardBatch
 		}
-		return nil
 	}
 	return awardBatch
 }
 
-func RandomGetAwardBatch(wheelId int, allowWinPrize bool) (*AwardBatchService, []*AwardBatchService) {
-	//中奖标志，默认设置未中奖项
-	var prizeAwardBatch AwardBatchService
-
+func RandomGetAwardBatch(wheelId int, allowWinPrize bool, algType int) (*AwardBatchService, []*AwardBatchService) {
 	retMap := global.GVA_REDIS.HGetAll(context.Background(), getAwardBalanceKey(wheelId)).Val()
 	totalBalance := int64(0)
-	for key, value := range retMap {
-		fmt.Println("key:value:", key, value)
+	for _, value := range retMap {
 		i, _ := strconv.ParseInt(value, 10, 64)
 		totalBalance += i
 	}
@@ -111,31 +113,36 @@ func RandomGetAwardBatch(wheelId int, allowWinPrize bool) (*AwardBatchService, [
 			noHitAwardBatch = append(noHitAwardBatch, &awardBatches[index])
 		}
 	}
-
-	fmt.Println(prizeAwardBatch)
-
 	if totalBalance <= 0 {
 		global.GVA_LOG.Info("total balance is ", zap.String("totalBalance", strconv.FormatInt(totalBalance, 10)))
-		return &prizeAwardBatch, noHitAwardBatch
+		return nil, noHitAwardBatch
 	}
 
-	random := rand.New(rand.NewSource(totalBalance))
-
-	num := random.Int63n(totalBalance)
-	for _, awardBatch := range awardBatches {
-		if awardBatch.TotalBalance <= 0 {
-			// 奖品已经抽完
-			continue
-		}
-		// 是否允许中奖，如果不允许中奖，则返回谢谢参与奖
-		if allowWinPrize {
-			num = num - awardBatch.TotalBalance
-			if num < 0 {
-				return &awardBatch, noHitAwardBatch
+	if algType == 1 {
+		random := rand.New(rand.NewSource(totalBalance))
+		num := random.Int63n(totalBalance)
+		for _, awardBatch := range awardBatches {
+			if awardBatch.TotalBalance <= 0 {
+				// 奖品已经抽完
+				continue
+			}
+			// 是否允许中奖，如果不允许中奖，则返回谢谢参与奖
+			if allowWinPrize {
+				num = num - awardBatch.TotalBalance
+				if num < 0 {
+					return &awardBatch, noHitAwardBatch
+				}
 			}
 		}
+	} else {
+		index := aliasMethod(awardBatches)
+		fmt.Println("index:", index)
+		//index := dispersed(awardBatches)
+		if awardBatches[index].TotalBalance > 0 {
+			return &awardBatches[index], noHitAwardBatch
+		}
 	}
-	return &prizeAwardBatch, noHitAwardBatch
+	return nil, noHitAwardBatch
 }
 
 func GetAllAwardBatch(wheelId int) []AwardBatchService {
@@ -157,6 +164,7 @@ func GetAllAwardBatch(wheelId int) []AwardBatchService {
 			WheelId:     aw.WheelId,
 			Uuid:        aw.Uuid,
 			PrizeType:   aw.PrizeType,
+			Probability: aw.Probability,
 			IsHit:       aw.IsHit,
 			PrizeName:   aw.PrizeName,
 			PrizeId:     int(parseInt),
@@ -169,11 +177,13 @@ func GetAllAwardBatch(wheelId int) []AwardBatchService {
 	return awardBatches
 }
 
-func WinPrize(wheelId int, allowWinPrize bool) *AwardBatchService {
+func WinPrize(wheelId int, allowWinPrize bool, algType int) *AwardBatchService {
 	lock.Lock()
 	defer lock.Unlock()
-	awardBatch := GetAwardBatch(wheelId, allowWinPrize)
-
+	awardBatch := GetAwardBatch(wheelId, allowWinPrize, algType)
+	if !allowWinPrize {
+		return awardBatch
+	}
 	_ = global.GVA_REDIS.Watch(context.Background(), func(tx *redis.Tx) error {
 		return nil
 	}, getAwardBalanceKey(awardBatch.WheelId))
@@ -192,10 +202,139 @@ func WinPrize(wheelId int, allowWinPrize bool) *AwardBatchService {
 	return awardBatch
 }
 
-func WinPrizeCustom(wheelId int, allowWinPrize bool) *AwardBatchService {
-	lock.Lock()
-	defer lock.Unlock()
-	awardBatch := GetAwardBatch(wheelId, allowWinPrize)
+// /https://juejin.cn/post/7070063466203054088
+// 构造容量为10000的容器
+func violence(gifts []AwardBatchService) int {
+	length := 0
+	data := ""
+	for index, value := range gifts {
+		length += value.Probability
+		position := fmt.Sprintf("%d,", index)
+		data += strings.Repeat(position, value.Probability)
+	}
+	random := rand.New(rand.NewSource(10000))
+	// 获取[10000,0) 随机数
+	index := random.Int63n(10000)
 
-	return nil
+	arr := strings.Split(data, ",")
+	giftIndex := cast.ToInt(arr[index])
+	return giftIndex
+}
+
+// 离散算法
+func dispersed(gifts []AwardBatchService) int {
+	data := make([]int, 0)
+	for index, value := range gifts {
+		if index > 0 {
+			data = append(data, value.Probability+data[index-1])
+		} else {
+			data = append(data, value.Probability)
+		}
+	}
+
+	// 获取[1,0) 随机数
+	random := rand.New(rand.NewSource(10000))
+	// 获取[10000,0) 随机数
+	index := random.Int63n(10000)
+	res := binarySearchV3(data, int(index))
+	return res
+}
+
+// 二分法下界（重复元素 第一个元素）
+func binarySearchV3(data []int, target int) int {
+	left, right := 0, len(data)
+
+	for left <= right {
+		mid := left + (right-left)/2
+
+		if data[mid] > target {
+			right = mid - 1
+		} else if data[mid] < target {
+			left = mid + 1
+		} else {
+			if mid == 0 || data[mid-1] != target {
+				return mid
+			} else {
+				right = mid - 1
+			}
+		}
+	}
+
+	return left
+}
+
+// 别名算法
+func aliasMethod(gifts []AwardBatchService) int {
+	// pdf := []float64{0.1, 0.2, 0.3, 0.4}
+	// pdf := []float64{0.8, 0.1, 0.1}
+	pdf := make([]float64, len(gifts))
+	for index, value := range gifts {
+		pdf[index] = float64(value.Probability) / 100
+	}
+
+	lenth := len(pdf)
+
+	// 原始数据
+	probInfo := make([]float64, lenth)
+
+	// 别名补充数据
+	alias := make([]int, lenth)
+
+	small := []int{}
+	large := []int{}
+
+	// 构造拼装出每一列和都唯一的矩阵
+	for i := 0; i < lenth; i++ {
+		pdf[i] *= float64(lenth)
+		if pdf[i] < 1.0 {
+			small = append(small, i)
+		} else {
+			large = append(large, i)
+		}
+	}
+
+	// 构造所有矩形概率值都等于1
+	for len(small) != 0 && len(large) != 0 {
+		s_index := small[0]
+		small = small[1:]
+		l_index := large[0]
+		large = large[1:]
+
+		probInfo[s_index] = pdf[s_index]
+		alias[s_index] = l_index
+
+		// 1.2 -= 1.0- 0.4
+		pdf[l_index] -= 1.0 - pdf[s_index]
+		if pdf[l_index] < 1.0 {
+			small = append(small, l_index)
+		} else {
+			large = append(large, l_index)
+		}
+	}
+
+	for len(small) > 0 {
+		temp := small[0]
+		small = small[1:]
+		probInfo[temp] = 1.0
+	}
+
+	for len(large) > 0 {
+		temp := large[0]
+		large = large[1:]
+		probInfo[temp] = 1.0
+	}
+
+	// 随机取出一个列
+	random := rand.New(rand.NewSource(int64(lenth)))
+	column := random.Int63n(int64(lenth))
+
+	// 获取一个随机小数
+	random = rand.New(rand.NewSource(10000))
+	// 获取[10000,0) 随机数
+	randomNumber := random.Int63n(10000) / 10000
+
+	if randomNumber < int64(probInfo[column]) {
+		return int(column)
+	}
+	return alias[column]
 }

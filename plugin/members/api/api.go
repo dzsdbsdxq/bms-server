@@ -67,6 +67,7 @@ func (p *PluginMemberApi) GetMemberInfo(c *gin.Context) {
 		PrizeId:      1,
 		PrizeType:    0,
 		IsHit:        1,
+		Probability:  100,
 		Uuid:         "u-1",
 		PrizeName:    "p-1",
 		TotalBalance: 2,
@@ -78,6 +79,7 @@ func (p *PluginMemberApi) GetMemberInfo(c *gin.Context) {
 		WheelId:      1,
 		PrizeId:      2,
 		PrizeType:    0,
+		Probability:  1000,
 		IsHit:        1,
 		Uuid:         "u-2",
 		PrizeName:    "p-2",
@@ -91,6 +93,7 @@ func (p *PluginMemberApi) GetMemberInfo(c *gin.Context) {
 		PrizeId:      3,
 		PrizeType:    0,
 		IsHit:        0,
+		Probability:  8900,
 		Uuid:         "u-3",
 		PrizeName:    "p-3",
 		TotalBalance: 5,
@@ -115,6 +118,7 @@ func (p *PluginMemberApi) GetMemberInfo(c *gin.Context) {
 }
 
 func (p *PluginMemberApi) GetAwardInfo(c *gin.Context) {
-	aw := wheel.WinPrize(1, true)
+	aw := wheel.WinPrize(1, true, 2)
+	//aw := wheel.WinPrizeCustom(1, true)
 	response.OkWithDetailed(aw, "success", c)
 }

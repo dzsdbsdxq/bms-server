@@ -134,11 +134,7 @@ func (w *WheelApi) WheelWin(c *gin.Context) {
 	var aw *wheel.AwardBatchService
 
 	//AlgType = 1 系统自带派奖算法，2=根据创建抽奖概率
-	if *wheels.AlgType == 1 {
-		aw = wheel.WinPrize(int(wheels.ID), allowWinPrize)
-	} else {
-
-	}
+	aw = wheel.WinPrize(int(wheels.ID), allowWinPrize, *wheels.AlgType)
 
 	if aw != nil {
 		// 保存用户中奖纪录

@@ -4,7 +4,9 @@ import (
 	"bms-server/global"
 	"bms-server/model/wheelPrizes"
 	wheelPrizesReq "bms-server/model/wheelPrizes/request"
+	"bms-server/service/wheel"
 	"gorm.io/gorm"
+	"sync"
 )
 
 type SysWheelPrizesService struct {
@@ -15,6 +17,37 @@ type SysWheelPrizesService struct {
 func (sysWheelPrizesService *SysWheelPrizesService) CreateSysWheelPrizes(sysWheelPrizes *wheelPrizes.SysWheelPrizes) (err error) {
 	err = global.GVA_DB.Create(sysWheelPrizes).Error
 	return err
+}
+
+func (sysWheelPrizesService *SysWheelPrizesService) InitWheelPrizesPool(info wheelPrizesReq.SysWheelPrizesSearch, st uint, end uint) error {
+	list, _, err := sysWheelPrizesService.GetSysWheelPrizesInfoList(info)
+	if err != nil {
+		return err
+	}
+	var wg sync.WaitGroup
+	for _, aw := range list {
+		aw := wheel.AwardBatchService{
+			WheelId:      *aw.WheelId,
+			PrizeId:      int(aw.ID),
+			PrizeType:    *aw.Type,
+			IsHit:        *aw.IsHit,
+			Probability:  *aw.Perc,
+			Uuid:         aw.Uuid,
+			PrizeName:    aw.Name,
+			TotalBalance: *aw.Nums,
+			TotalAmount:  *aw.Nums,
+			UpdateTime:   0,
+			StartTime:    int64(st),
+			EndTime:      int64(end),
+		}
+		wg.Add(1)
+		go func(aw wheel.AwardBatchService) {
+			wheel.InitAwardPool(&aw)
+			wg.Done()
+		}(aw)
+	}
+	wg.Wait()
+	return nil
 }
 
 // DeleteSysWheelPrizes 删除sysWheelPrizes表记录
