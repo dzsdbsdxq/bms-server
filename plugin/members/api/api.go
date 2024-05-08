@@ -65,30 +65,36 @@ func (p *PluginMemberApi) GetMemberInfo(c *gin.Context) {
 	awards = append(awards, wheel.AwardBatchService{
 		WheelId:      1,
 		PrizeId:      1,
+		PrizeType:    0,
+		IsHit:        1,
 		Uuid:         "u-1",
 		PrizeName:    "p-1",
-		TotalBalance: 100,
-		TotalAmount:  100,
+		TotalBalance: 2,
+		TotalAmount:  2,
 		UpdateTime:   0,
 		StartTime:    1713888257,
 		EndTime:      1713974657,
 	}, wheel.AwardBatchService{
 		WheelId:      1,
 		PrizeId:      2,
+		PrizeType:    0,
+		IsHit:        1,
 		Uuid:         "u-2",
 		PrizeName:    "p-2",
-		TotalBalance: 200,
-		TotalAmount:  200,
+		TotalBalance: 1,
+		TotalAmount:  1,
 		UpdateTime:   0,
 		StartTime:    1713888257,
 		EndTime:      1713974657,
 	}, wheel.AwardBatchService{
 		WheelId:      1,
 		PrizeId:      3,
+		PrizeType:    0,
+		IsHit:        0,
 		Uuid:         "u-3",
 		PrizeName:    "p-3",
-		TotalBalance: 30000,
-		TotalAmount:  30000,
+		TotalBalance: 5,
+		TotalAmount:  5,
 		UpdateTime:   0,
 		StartTime:    1713888257,
 		EndTime:      1713974657,
@@ -109,6 +115,6 @@ func (p *PluginMemberApi) GetMemberInfo(c *gin.Context) {
 }
 
 func (p *PluginMemberApi) GetAwardInfo(c *gin.Context) {
-	aw := wheel.WinPrize(1)
+	aw := wheel.WinPrize(1, true)
 	response.OkWithDetailed(aw, "success", c)
 }

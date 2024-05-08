@@ -4,6 +4,7 @@ import (
 	"bms-server/global"
 	"bms-server/model/common/response"
 	wheelPrizesReq "bms-server/model/wheelPrizes/request"
+	"bms-server/model/wheelRecords"
 	"bms-server/plugin/wheels/model"
 	"bms-server/service"
 	"bms-server/service/wheel"
@@ -12,6 +13,7 @@ import (
 	"github.com/gin-gonic/gin"
 	jsoniter "github.com/json-iterator/go"
 	"net/http"
+	"strconv"
 	"text/template"
 	"time"
 )
@@ -75,7 +77,7 @@ func (w *WheelApi) IndexPage(c *gin.Context) {
 	//})
 }
 
-// Win 抽奖接口
+// WheelWin Win 抽奖接口
 func (w *WheelApi) WheelWin(c *gin.Context) {
 	var wwr model.WheelWinRequest
 	err := c.ShouldBindJSON(&wwr)
@@ -104,7 +106,10 @@ func (w *WheelApi) WheelWin(c *gin.Context) {
 		response.FailWithMessage("活动已结束", c)
 		return
 	}
-	records := sysWheelsRecordsService.GetSysWheelRecordsInfoListBy(int(wheels.ID), int(utils.GetMemberID(c)))
+
+	memberId := int(utils.GetMemberID(c))
+
+	records := sysWheelsRecordsService.GetSysWheelRecordsInfoListBy(int(wheels.ID), memberId)
 
 	//判断用户每日可抽次数
 	if *wheels.DayGetNum > 0 {
@@ -113,7 +118,7 @@ func (w *WheelApi) WheelWin(c *gin.Context) {
 			return
 		}
 	}
-	allowWinPrize := false
+	allowWinPrize := true
 	isHits := 0
 	// 判断用户是否中奖
 	for _, record := range records {
@@ -124,8 +129,29 @@ func (w *WheelApi) WheelWin(c *gin.Context) {
 	//整场活动同一用户可中奖次数
 	if isHits >= *wheels.GetTotalNum {
 		//如果中奖已达上限，返回未抽奖
-		allowWinPrize = true
+		allowWinPrize = false
+	}
+	var aw *wheel.AwardBatchService
+
+	//AlgType = 1 系统自带派奖算法，2=根据创建抽奖概率
+	if *wheels.AlgType == 1 {
+		aw = wheel.WinPrize(int(wheels.ID), allowWinPrize)
+	} else {
+
 	}
 
-	aw := wheel.WinPrize(int(wheels.ID), allowWinPrize)
+	if aw != nil {
+		// 保存用户中奖纪录
+		_ = sysWheelsRecordsService.CreateSysWheelRecords(&wheelRecords.SysWheelRecords{
+			MemberId:     &memberId,
+			Name:         aw.PrizeName,
+			WheelId:      &aw.WheelId,
+			WheelPrizeId: &aw.PrizeId,
+			Type:         &aw.PrizeType,
+			IsHit:        &aw.IsHit,
+		})
+		//奖品已抽数量增加
+		_ = sysWheelsPrizeService.UpdateSysWheelPrizesField("use_nums", strconv.Itoa(aw.PrizeId))
+	}
+	response.OkWithDetailed(aw, "success", c)
 }

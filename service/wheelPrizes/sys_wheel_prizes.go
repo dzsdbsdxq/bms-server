@@ -4,6 +4,7 @@ import (
 	"bms-server/global"
 	"bms-server/model/wheelPrizes"
 	wheelPrizesReq "bms-server/model/wheelPrizes/request"
+	"gorm.io/gorm"
 )
 
 type SysWheelPrizesService struct {
@@ -34,6 +35,13 @@ func (sysWheelPrizesService *SysWheelPrizesService) DeleteSysWheelPrizesByIds(ID
 // Author [piexlmax](https://github.com/piexlmax)
 func (sysWheelPrizesService *SysWheelPrizesService) UpdateSysWheelPrizes(sysWheelPrizes wheelPrizes.SysWheelPrizes) (err error) {
 	err = global.GVA_DB.Save(&sysWheelPrizes).Error
+	return err
+}
+
+// UpdateSysWheelPrizesField 更新sysWheelPrizes表某字段值
+// Author [piexlmax](https://github.com/piexlmax)
+func (sysWheelPrizesService *SysWheelPrizesService) UpdateSysWheelPrizesField(field string, ID string) error {
+	err := global.GVA_DB.Where("id = ?", ID).UpdateColumn(field, gorm.Expr(field+" + ?", 1)).Error
 	return err
 }
 

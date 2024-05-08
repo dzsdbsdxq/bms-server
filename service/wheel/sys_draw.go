@@ -17,16 +17,18 @@ import (
 var lock = sync.Mutex{}
 
 type AwardBatchService struct {
-	WheelId      int //活动ID
-	PrizeId      int //奖项ID
-	Uuid         string
-	IsHit        int    //中奖项，0=否，1=是
-	PrizeName    string // 奖品名称
-	TotalBalance int64  // 剩余奖品总数
-	TotalAmount  int64  // 奖品总数
-	UpdateTime   int64  // 上次奖品发放时间
+	WheelId      int   //活动ID
+	PrizeId      int   //奖项ID
+	PrizeType    int   //奖项类型 0=虚拟，1=实物
+	IsHit        int   //中奖项，0=否，1=是
+	TotalBalance int64 // 剩余奖品总数
+	TotalAmount  int64 // 奖品总数
+	UpdateTime   int64 // 上次奖品发放时间
 	StartTime    int64
 	EndTime      int64
+	Perc         float64
+	Uuid         string
+	PrizeName    string // 奖品名称
 }
 
 func (award *AwardBatchService) SetAwardBatchService(aw *AwardBatchService) *AwardBatchService {
@@ -63,13 +65,11 @@ func InitAwardPool(award *AwardBatchService) {
 }
 
 func GetAwardBatch(wheelId int, allowWinPrize bool) *AwardBatchService {
-	awardBatch := RandomGetAwardBatch(wheelId, allowWinPrize)
-	if awardBatch == nil {
-		log.Println("sorry, you didn't win the prize.")
-		return nil
+	awardBatch, noHitAwardBatchs := RandomGetAwardBatch(wheelId, allowWinPrize)
+	// 如果是不允许中奖，直接返回，无需判断奖品释放时间点
+	if !allowWinPrize {
+		return awardBatch
 	}
-	fmt.Println("中奖：", awardBatch)
-
 	// 判断是否到达奖品释放时间点
 	random := rand.New(rand.NewSource(awardBatch.UpdateTime))
 
@@ -79,48 +79,63 @@ func GetAwardBatch(wheelId int, allowWinPrize bool) *AwardBatchService {
 	releaseTime := awardBatch.StartTime + (awardBatch.TotalAmount-awardBatch.TotalBalance)*detalTime + int64(random.Int())%detalTime
 
 	if time.Now().Unix() < releaseTime {
-		// 未到达奖品释放的时间点，即不中奖
-		log.Println("sorry, you didn't win the prize")
+		// 未到达奖品释放的时间点，即不中奖，不中奖，返回谢谢参与
+		if len(noHitAwardBatchs) != 0 {
+			tmpRd := rand.New(rand.NewSource(int64(len(noHitAwardBatchs))))
+			return noHitAwardBatchs[tmpRd.Int63n(int64(len(noHitAwardBatchs)))]
+		}
 		return nil
 	}
 	return awardBatch
 }
 
-func RandomGetAwardBatch(wheelId int, allowWinPrize bool) *AwardBatchService {
+func RandomGetAwardBatch(wheelId int, allowWinPrize bool) (*AwardBatchService, []*AwardBatchService) {
+	//中奖标志，默认设置未中奖项
+	var prizeAwardBatch AwardBatchService
+
 	retMap := global.GVA_REDIS.HGetAll(context.Background(), getAwardBalanceKey(wheelId)).Val()
 	totalBalance := int64(0)
-	for _, value := range retMap {
+	for key, value := range retMap {
+		fmt.Println("key:value:", key, value)
 		i, _ := strconv.ParseInt(value, 10, 64)
 		totalBalance += i
 	}
 
-	if totalBalance == 0 {
-		global.GVA_LOG.Info("total balance is ", zap.String("totalBalance", strconv.FormatInt(totalBalance, 10)))
-		return nil
-	}
+	//临时存储未中奖项
+	noHitAwardBatch := make([]*AwardBatchService, 0)
 
 	awardBatches := GetAllAwardBatch(wheelId)
 	for index, awardBatch := range awardBatches {
 		awardBatches[index].TotalBalance, _ = strconv.ParseInt(retMap[strconv.Itoa(awardBatch.PrizeId)], 10, 64) //awardBatch.TotalBalance //retMap[strconv.Itoa(awardBatch.PrizeId)]
+		if awardBatches[index].IsHit == 0 {
+			noHitAwardBatch = append(noHitAwardBatch, &awardBatches[index])
+		}
 	}
+
+	fmt.Println(prizeAwardBatch)
+
+	if totalBalance <= 0 {
+		global.GVA_LOG.Info("total balance is ", zap.String("totalBalance", strconv.FormatInt(totalBalance, 10)))
+		return &prizeAwardBatch, noHitAwardBatch
+	}
+
 	random := rand.New(rand.NewSource(totalBalance))
 
 	num := random.Int63n(totalBalance)
 	for _, awardBatch := range awardBatches {
-		// 奖品已经抽完
 		if awardBatch.TotalBalance <= 0 {
-			log.Println("奖品已经抽完")
+			// 奖品已经抽完
 			continue
 		}
-
-		num = num - awardBatch.TotalBalance
-		if num < 0 {
-			return &awardBatch
+		// 是否允许中奖，如果不允许中奖，则返回谢谢参与奖
+		if allowWinPrize {
+			num = num - awardBatch.TotalBalance
+			if num < 0 {
+				return &awardBatch, noHitAwardBatch
+			}
 		}
 	}
-
-	return nil
-
+	return &prizeAwardBatch, noHitAwardBatch
 }
 
 func GetAllAwardBatch(wheelId int) []AwardBatchService {
@@ -129,6 +144,7 @@ func GetAllAwardBatch(wheelId int) []AwardBatchService {
 	values := global.GVA_REDIS.ZRangeWithScores(context.Background(), getAwardInfoKey(wheelId), 0, -1).Val()
 	if len(values) == 0 {
 		log.Println("get all award redis error ")
+		return nil
 	}
 
 	awardSourceInfoStr := global.GVA_REDIS.HGetAll(context.Background(), getAwardSourceInfoKey(wheelId)).Val()
@@ -140,6 +156,7 @@ func GetAllAwardBatch(wheelId int) []AwardBatchService {
 		awardBatches = append(awardBatches, AwardBatchService{
 			WheelId:     aw.WheelId,
 			Uuid:        aw.Uuid,
+			PrizeType:   aw.PrizeType,
 			IsHit:       aw.IsHit,
 			PrizeName:   aw.PrizeName,
 			PrizeId:     int(parseInt),
@@ -153,22 +170,14 @@ func GetAllAwardBatch(wheelId int) []AwardBatchService {
 }
 
 func WinPrize(wheelId int, allowWinPrize bool) *AwardBatchService {
-
 	lock.Lock()
-
 	defer lock.Unlock()
 	awardBatch := GetAwardBatch(wheelId, allowWinPrize)
 
-	if awardBatch == nil {
-		return awardBatch
-	}
-
-	err := global.GVA_REDIS.Watch(context.Background(), func(tx *redis.Tx) error {
+	_ = global.GVA_REDIS.Watch(context.Background(), func(tx *redis.Tx) error {
 		return nil
 	}, getAwardBalanceKey(awardBatch.WheelId))
-	if err != nil {
-		return nil
-	}
+
 	pipe := global.GVA_REDIS.TxPipeline()
 	pipe.ZAdd(context.Background(), getAwardInfoKey(awardBatch.WheelId), redis.Z{
 		Score:  float64(time.Now().Unix()),
@@ -176,19 +185,17 @@ func WinPrize(wheelId int, allowWinPrize bool) *AwardBatchService {
 	})
 	// redis中的库存-1
 	pipe.HSet(context.Background(), getAwardBalanceKey(awardBatch.WheelId), awardBatch.PrizeId, awardBatch.TotalBalance-1)
-	_, err = pipe.Exec(context.Background())
-	if err != nil {
-		lock.Unlock()
-		return nil
-	}
+	_, _ = pipe.Exec(context.Background())
 	log.Println("congratulations , you won ", awardBatch.PrizeName)
-
 	//更新 返回的库存
 	awardBatch.TotalBalance = awardBatch.TotalBalance - 1
-	// 保存用户中奖纪录
-	//awardTime := time.Unix(awardBatch.GetUpdateTime(), 0).Format("2006-01-02 15:04:05")
-	//	userName := req.Form.Get("user_name")
-	//mysqlWrapper.SaveRecords(awardBatch.GetName(), awardTime, username)
-
 	return awardBatch
+}
+
+func WinPrizeCustom(wheelId int, allowWinPrize bool) *AwardBatchService {
+	lock.Lock()
+	defer lock.Unlock()
+	awardBatch := GetAwardBatch(wheelId, allowWinPrize)
+
+	return nil
 }
