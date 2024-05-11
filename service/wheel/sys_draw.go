@@ -24,12 +24,12 @@ type AwardBatchService struct {
 	Probability  int   //概率
 	PrizeType    int   //奖项类型 0=虚拟，1=实物
 	IsHit        int   //中奖项，0=否，1=是
-	TotalBalance int   // 剩余奖品总数
-	TotalAmount  int   // 奖品总数
+	TotalBalance int64 // 剩余奖品总数
+	TotalAmount  int64 // 奖品总数
 	UpdateTime   int64 // 上次奖品发放时间
 	StartTime    int64
 	EndTime      int64
-	Perc         float64
+	Perc         int64
 	Uuid         string
 	PrizeName    string // 奖品名称
 }
@@ -135,6 +135,8 @@ func RandomGetAwardBatch(wheelId int, allowWinPrize bool, algType int) (*AwardBa
 			}
 		}
 	} else {
+		//TODO 这里需要把库存为0的筛选出来
+
 		index := aliasMethod(awardBatches)
 		fmt.Println("index:", index)
 		//index := dispersed(awardBatches)

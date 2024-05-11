@@ -39,7 +39,7 @@ func (sysWheelPrizesApi *SysWheelPrizesApi) CreateSysWheelPrizes(c *gin.Context)
 		global.GVA_LOG.Error("创建失败!", zap.Error(err))
 		response.FailWithMessage("创建失败", c)
 	} else {
-		sysWheelPrizesService.InitWheelPrizesPool(info wheelPrizesReq.SysWheelPrizesSearch, st uint, end uint)
+		sysWheelPrizesService.InitWheelPrizesPool(sysWheelPrizes.WheelId,info wheelPrizesReq.SysWheelPrizesSearch, st uint, end uint)
 		response.OkWithMessage("创建成功", c)
 	}
 }
