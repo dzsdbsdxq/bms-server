@@ -9,11 +9,13 @@ import (
 	"github.com/gin-gonic/gin"
 	uuid "github.com/satori/go.uuid"
 	"go.uber.org/zap"
+	"strconv"
 )
 
 type SysWheelPrizesApi struct {
 }
 
+var sysWheelService = service.ServiceGroupApp.WheelServiceGroup.SysWheelsService
 var sysWheelPrizesService = service.ServiceGroupApp.WheelPrizesServiceGroup.SysWheelPrizesService
 var awardBatchService = service.ServiceGroupApp.WheelServiceGroup.AwardBatchService
 
@@ -39,7 +41,12 @@ func (sysWheelPrizesApi *SysWheelPrizesApi) CreateSysWheelPrizes(c *gin.Context)
 		global.GVA_LOG.Error("创建失败!", zap.Error(err))
 		response.FailWithMessage("创建失败", c)
 	} else {
-		sysWheelPrizesService.InitWheelPrizesPool(sysWheelPrizes.WheelId,info wheelPrizesReq.SysWheelPrizesSearch, st uint, end uint)
+		//查询该抽奖活动
+		wheels, _ := sysWheelService.GetSysWheels(strconv.Itoa(*sysWheelPrizes.WheelId))
+		_ = sysWheelPrizesService.InitWheelPrizesPool(wheelPrizesReq.SysWheelPrizesSearch{
+			ID: wheels.ID,
+		}, wheels.StartTime.Unix(), wheels.EndTime.Unix())
+
 		response.OkWithMessage("创建成功", c)
 	}
 }
@@ -102,6 +109,11 @@ func (sysWheelPrizesApi *SysWheelPrizesApi) UpdateSysWheelPrizes(c *gin.Context)
 		global.GVA_LOG.Error("更新失败!", zap.Error(err))
 		response.FailWithMessage("更新失败", c)
 	} else {
+		//查询该抽奖活动
+		wheels, _ := sysWheelService.GetSysWheels(strconv.Itoa(*sysWheelPrizes.WheelId))
+		_ = sysWheelPrizesService.InitWheelPrizesPool(wheelPrizesReq.SysWheelPrizesSearch{
+			ID: wheels.ID,
+		}, wheels.StartTime.Unix(), wheels.EndTime.Unix())
 		response.OkWithMessage("更新成功", c)
 	}
 }

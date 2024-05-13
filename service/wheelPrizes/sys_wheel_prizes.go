@@ -19,7 +19,7 @@ func (sysWheelPrizesService *SysWheelPrizesService) CreateSysWheelPrizes(sysWhee
 	return err
 }
 
-func (sysWheelPrizesService *SysWheelPrizesService) InitWheelPrizesPool(info wheelPrizesReq.SysWheelPrizesSearch, st uint, end uint) error {
+func (sysWheelPrizesService *SysWheelPrizesService) InitWheelPrizesPool(info wheelPrizesReq.SysWheelPrizesSearch, st int64, end int64) error {
 	list, _, err := sysWheelPrizesService.GetSysWheelPrizesInfoList(info)
 	if err != nil {
 		return err
@@ -37,8 +37,8 @@ func (sysWheelPrizesService *SysWheelPrizesService) InitWheelPrizesPool(info whe
 			TotalBalance: int64(*aw.Nums),
 			TotalAmount:  int64(*aw.Nums),
 			UpdateTime:   0,
-			StartTime:    int64(st),
-			EndTime:      int64(end),
+			StartTime:    st,
+			EndTime:      end,
 		}
 		wg.Add(1)
 		go func(aw wheel.AwardBatchService) {

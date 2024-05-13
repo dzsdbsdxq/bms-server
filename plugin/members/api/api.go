@@ -118,7 +118,7 @@ func (p *PluginMemberApi) GetMemberInfo(c *gin.Context) {
 }
 
 func (p *PluginMemberApi) GetAwardInfo(c *gin.Context) {
-	aw := wheel.WinPrize(1, true, 2)
+	aw := wheel.WinPrize(3, true, 2)
 	//aw := wheel.WinPrizeCustom(1, true)
 	response.OkWithDetailed(aw, "success", c)
 }
