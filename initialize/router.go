@@ -97,30 +97,6 @@ func Routers() *gin.Engine {
 		exampleRouter.InitFileUploadAndDownloadRouter(PrivateGroup) // 文件上传下载功能路由
 
 	}
-	{
-		membersRouter := router.RouterGroupApp.Members
-		membersRouter.InitSysMembersRouter(PrivateGroup)
-	}
-	{
-		integralRouter := router.RouterGroupApp.Integral
-		integralRouter.InitSysIntegralRouter(PrivateGroup)
-	}
-	{
-		wheelRouter := router.RouterGroupApp.Wheel
-		wheelRouter.InitSysWheelsRouter(PrivateGroup)
-	}
-	{
-		wheelPrizesRouter := router.RouterGroupApp.WheelPrizes
-		wheelPrizesRouter.InitSysWheelPrizesRouter(PrivateGroup)
-	}
-	{
-		wheelAddressRouter := router.RouterGroupApp.WheelAddress
-		wheelAddressRouter.InitSysWheelAddressRouter(PrivateGroup)
-	}
-	{
-		wheelRecordsRouter := router.RouterGroupApp.WheelRecords
-		wheelRecordsRouter.InitSysWheelRecordsRouter(PrivateGroup)
-	}
 
 	global.GVA_LOG.Info("router register success")
 	return Router
