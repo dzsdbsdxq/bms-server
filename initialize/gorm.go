@@ -7,12 +7,6 @@ import (
 	"bms-server/model/example"
 	"bms-server/model/system"
 
-	"bms-server/model/integral"
-	"bms-server/model/members"
-	"bms-server/model/wheel"
-	"bms-server/model/wheelAddress"
-	"bms-server/model/wheelPrizes"
-	"bms-server/model/wheelRecords"
 	"go.uber.org/zap"
 	"gorm.io/gorm"
 )
@@ -57,7 +51,7 @@ func RegisterTables() {
 		example.ExaFile{},
 		example.ExaCustomer{},
 		example.ExaFileChunk{},
-		example.ExaFileUploadAndDownload{}, members.SysMembers{}, integral.SysIntegral{}, wheel.SysWheels{}, wheelPrizes.SysWheelPrizes{}, wheelAddress.SysWheelAddress{}, wheelRecords.SysWheelRecords{},
+		example.ExaFileUploadAndDownload{},
 	)
 	if err != nil {
 		global.GVA_LOG.Error("register table failed", zap.Error(err))

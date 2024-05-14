@@ -1,8 +1,6 @@
 package initialize
 
 import (
-	"bms-server/plugin/members"
-	"bms-server/plugin/wheels"
 	"fmt"
 
 	"bms-server/global"
@@ -36,7 +34,5 @@ func InstallPlugin(Router *gin.Engine) {
 		global.GVA_CONFIG.Email.IsSSL,
 	))
 	// 888 为普通用户ID
-	PluginInit(PublicGroup, members.CreateMemberPlug())
-	PluginInit(PublicGroup, wheels.CreateWheelPlug())
 
 }
