@@ -84,7 +84,7 @@ func (st *SzTvLocal) UploadFile(file *multipart.FileHeader) (string, string, err
 	client := &http.Client{}
 	postResponse, err := client.Do(req)
 	if err != nil {
-		fmt.Println("发送GET请求失败:", err)
+		fmt.Println("发送POST请求失败:", err)
 		return "", "", err
 	}
 	defer postResponse.Body.Close()
@@ -96,16 +96,11 @@ func (st *SzTvLocal) UploadFile(file *multipart.FileHeader) (string, string, err
 		return "", "", err
 	}
 	var resData *SzTvLocalResponse
-	// 打印POST响应的内容
-	fmt.Println(string(postResponseBody))
 
 	err = jsoniter.Unmarshal(postResponseBody, &resData)
-	fmt.Println(err)
 	if err != nil {
 		return "", "", err
 	}
-	fmt.Println(resData.State)
-	fmt.Println(resData.Data)
 	if resData.State == 200 {
 		if len(resData.Data) > 0 {
 			return resData.Data[0].OriginHttpUrl, fileKey, nil
@@ -125,7 +120,6 @@ func (st *SzTvLocal) Authorized(method string, path string) (gmtDate string, non
 	// 将UTC时间格式化为易读的字符串
 	utcString := time.Now().UTC().Format(time.RFC1123)
 	signingString := fmt.Sprintf("x-date: %s \n@request-target: %s %s\nhost: apix.scms.sztv.com.cn\nnonce: %s", utcString, strings.ToLower(method), path, nonce)
-	fmt.Println(signingString)
 	mac := hmac.New(sha512.New, []byte("xUJ7Gls45St0CTnatnwZwsH4UyYj0rpX"))
 	_, err = mac.Write([]byte(signingString))
 	if err != nil {

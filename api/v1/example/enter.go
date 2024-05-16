@@ -5,6 +5,7 @@ import "bms-server/service"
 type ApiGroup struct {
 	CustomerApi
 	FileUploadAndDownloadApi
+	FlushCdnApi
 }
 
 var (

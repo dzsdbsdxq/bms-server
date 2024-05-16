@@ -1,6 +1,7 @@
 package global
 
 import (
+	"github.com/go-resty/resty/v2"
 	"github.com/qiniu/qmgo"
 	"sync"
 
@@ -24,6 +25,7 @@ var (
 	GVA_REDIS  redis.UniversalClient
 	GVA_MONGO  *qmgo.QmgoClient
 	GVA_CONFIG config.Server
+	GVA_RESTY  *resty.Client
 	GVA_VP     *viper.Viper
 	// GVA_LOG    *oplogging.Logger
 	GVA_LOG                 *zap.Logger

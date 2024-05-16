@@ -93,9 +93,12 @@ func Routers() *gin.Engine {
 		systemRouter.InitSysDictionaryDetailRouter(PrivateGroup)    // 字典详情管理
 		systemRouter.InitAuthorityBtnRouterRouter(PrivateGroup)     // 字典详情管理
 		systemRouter.InitSysExportTemplateRouter(PrivateGroup)      // 导出模板
+		systemRouter.InitSysExtendsRouter(PrivateGroup)             //扩展字段
+		systemRouter.InitSysExtendsDetailRouter(PrivateGroup)       //扩展字段详情
+		systemRouter.InitSysSnsRecordRouter(PrivateGroup)           //短信记录注册
 		exampleRouter.InitCustomerRouter(PrivateGroup)              // 客户路由
 		exampleRouter.InitFileUploadAndDownloadRouter(PrivateGroup) // 文件上传下载功能路由
-
+		exampleRouter.InitFlushCdnRouter(PrivateGroup)              //刷新CDN
 	}
 
 	global.GVA_LOG.Info("router register success")

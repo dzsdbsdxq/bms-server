@@ -1,6 +1,8 @@
 package initialize
 
 import (
+	"bms-server/plugin/extends"
+	"bms-server/plugin/sns"
 	"fmt"
 
 	"bms-server/global"
@@ -34,5 +36,7 @@ func InstallPlugin(Router *gin.Engine) {
 		global.GVA_CONFIG.Email.IsSSL,
 	))
 	// 888 为普通用户ID
+	PluginInit(PublicGroup, extends.CreateExtendsPlug())
+	PluginInit(PublicGroup, sns.CreateSnsPlug())
 
 }

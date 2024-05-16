@@ -24,5 +24,8 @@ type IdsReq struct {
 type GetAuthorityId struct {
 	AuthorityId uint `json:"authorityId" form:"authorityId"` // 角色ID
 }
+type FlushCdnRequest struct {
+	Url string `json:"url" form:"url"` //关键字
+}
 
 type Empty struct{}
