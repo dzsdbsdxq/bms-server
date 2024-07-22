@@ -22,9 +22,7 @@ func (s *ChannelApi) GetChannelDetail(c *gin.Context) {
 	}
 	channelInfo, err := service.ServiceGroupApp.ChannelService.GetSysChannel(channel.AppId)
 	if err != nil {
-		global.GVA_LOG.Error("获取渠道信息失败!", zap.Error(err))
-		response.FailWithMessage("获取渠道信息失败", c)
-		return
+		channelInfo, _ = service.ServiceGroupApp.ChannelService.GetSysChannel("official")
 	}
 	if !*channelInfo.Status {
 		response.FailWithMessage("渠道已停用", c)
