@@ -4,8 +4,10 @@ import (
 	"bms-server/global"
 	"bms-server/model/common/response"
 	"bms-server/plugin/extends/model/request"
+	response2 "bms-server/plugin/extends/model/response"
 	"bms-server/plugin/extends/service"
 	"github.com/gin-gonic/gin"
+	jsoniter "github.com/json-iterator/go"
 	"go.uber.org/zap"
 )
 
@@ -28,13 +30,36 @@ func (s *ExtendsApi) GetExtendsDetail(c *gin.Context) {
 		response.FailWithMessage("扩展已停用", c)
 		return
 	}
-	lists := make(map[string]string, 0)
-	extendDetailInfo, err := service.ServiceGroupApp.ExtendsDetailService.ExtendsDetailInfo(extends.AppId)
-	if len(extendDetailInfo) > 0 {
-		for _, detail := range extendDetailInfo {
-			lists[detail.Key] = detail.Value
-		}
+	extendDetailInfo, _ := service.ServiceGroupApp.ExtendsDetailService.ExtendsDetailInfo(extends.AppId)
 
+	if extendInfo.DType == `gps` {
+		lists := make([]response2.ExtendDetailResponse, 0)
+		if len(extendDetailInfo) > 0 {
+			for _, detail := range extendDetailInfo {
+				var tmpJson interface{}
+				_ = jsoniter.Unmarshal([]byte(detail.Value), &tmpJson)
+				lists = append(lists, response2.ExtendDetailResponse{
+					SysExtendsDetail: detail,
+					Jsx:              tmpJson,
+				})
+			}
+		}
+		response.OkWithDetailed(lists, "获取成功", c)
+	} else if extendInfo.DType == `array` {
+		lists := make(map[string]interface{}, 0)
+		for _, detail := range extendDetailInfo {
+			var tmpJson interface{}
+			_ = jsoniter.Unmarshal([]byte(detail.Value), &tmpJson)
+			lists[detail.Key] = tmpJson
+		}
+		response.OkWithDetailed(lists, "获取成功", c)
+	} else {
+		lists := make(map[string]string, 0)
+		if len(extendDetailInfo) > 0 {
+			for _, detail := range extendDetailInfo {
+				lists[detail.Key] = detail.Value
+			}
+		}
+		response.OkWithDetailed(lists, "获取成功", c)
 	}
-	response.OkWithDetailed(lists, "获取成功", c)
 }

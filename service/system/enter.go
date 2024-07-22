@@ -20,4 +20,5 @@ type ServiceGroup struct {
 	AuthorityBtnService
 	SysExportTemplateService
 	SnsRecordService
+	ChannelDistrubuteService
 }

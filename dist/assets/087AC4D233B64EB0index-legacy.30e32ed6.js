@@ -1,0 +1,4 @@
+/*! 
+ Build based on gin-vue-admin 
+ Time : 1717039643000 */
+System.register(["./087AC4D233B64EB0index-legacy.e02f1eb2.js","./087AC4D233B64EB0button-legacy.6621f510.js"],(function(e,n){"use strict";var t,r,u,l,s,i,c,a,f;return{setters:[function(e){t=e.u,r=e.l,u=e.o,l=e.c,s=e.b,i=e.d,c=e.w,a=e.k,f=e.i},null],execute:function(){var o=""+new URL("087AC4D233B64EB0notFound.4e921f05.png",n.meta.url).href,d={class:"flex items-center justify-center w-full h-screen bg-gray-50"},g={class:"flex flex-col items-center gap-4 text-2xl"},m=s("img",{src:o},null,-1);e("default",Object.assign({name:"Error"},{__name:"index",setup:function(e){var n=t(),o=r(),x=function(){o.push({name:n.userInfo.authority.defaultRouter})};return function(e,n){var t=a;return u(),l("div",null,[s("div",d,[s("div",g,[m,i(t,{size:"small",onClick:x},{default:c((function(){return[f("返回首页")]})),_:1})])])])}}}))}}}));

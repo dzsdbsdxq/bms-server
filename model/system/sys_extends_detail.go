@@ -15,6 +15,7 @@ type SysExtendsDetail struct {
 	Key          string `json:"key" form:"key" gorm:"column:key;comment:字典值"`                               // 字典值
 	Value        string `json:"value" form:"value" gorm:"column:value;comment:扩展值"`                         // 扩展值
 	AppId        string `json:"appId" form:"appId" gorm:"column:appid;comment:关联标记"`                        // 扩展值
+	Type         string `json:"type" form:"type" gorm:"column:type;comment:类型(text=文本，object=对象，array=数组)"` // 扩展值类型
 }
 
 func (SysExtendsDetail) TableName() string {

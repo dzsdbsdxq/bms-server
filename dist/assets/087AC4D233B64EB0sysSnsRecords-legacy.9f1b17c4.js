@@ -1,0 +1,4 @@
+/*! 
+ Build based on gin-vue-admin 
+ Time : 1717039643000 */
+System.register(["./087AC4D233B64EB0index-legacy.e02f1eb2.js"],(function(s,e){"use strict";var t;return{setters:[function(s){t=s.K}],execute:function(){s("c",(function(s){return t({url:"/sysSnsRecords/createSysSnsRecords",method:"post",data:s})})),s("a",(function(s){return t({url:"/sysSnsRecords/deleteSysSnsRecords",method:"delete",params:s})})),s("d",(function(s){return t({url:"/sysSnsRecords/deleteSysSnsRecordsByIds",method:"delete",params:s})})),s("u",(function(s){return t({url:"/sysSnsRecords/updateSysSnsRecords",method:"put",data:s})})),s("f",(function(s){return t({url:"/sysSnsRecords/findSysSnsRecords",method:"get",params:s})})),s("g",(function(s){return t({url:"/sysSnsRecords/getSysSnsRecordsList",method:"get",params:s})}))}}}));

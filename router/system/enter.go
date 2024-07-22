@@ -19,4 +19,5 @@ type RouterGroup struct {
 	ExtendsRouter
 	ExtendsDetailRouter
 	SnsRecordRouter
+	ChannelDistrubuteRouter
 }

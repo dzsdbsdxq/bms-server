@@ -47,11 +47,11 @@ func Routers() *gin.Engine {
 	// VUE_APP_BASE_PATH = http://localhost
 	// 然后执行打包命令 npm run build。在打开下面3行注释
 	//Router.Static("/favicon.ico", "./dist/favicon.ico")
-	//Router.Static("/assets", "./dist/assets")   // dist里面的静态资源
-	//Router.StaticFile("/", "./dist/index.html") // 前端网页入口页面
+	Router.Static("/assets", "./dist/assets")   // dist里面的静态资源
+	Router.StaticFile("/", "./dist/index.html") // 前端网页入口页面
 
 	//加载模版
-	Router.Static("templates", "templates/wheels")
+	//Router.Static("templates", "templates/wheels")
 	//Router.LoadHTMLGlob("./templates/*/*/*.html")
 	//设置模版常量
 
@@ -95,6 +95,7 @@ func Routers() *gin.Engine {
 		systemRouter.InitSysExportTemplateRouter(PrivateGroup)      // 导出模板
 		systemRouter.InitSysExtendsRouter(PrivateGroup)             //扩展字段
 		systemRouter.InitSysExtendsDetailRouter(PrivateGroup)       //扩展字段详情
+		systemRouter.InitSysChannelDistrubuteRouter(PrivateGroup)   //壹深圳下载分发
 		systemRouter.InitSysSnsRecordRouter(PrivateGroup)           //短信记录注册
 		exampleRouter.InitCustomerRouter(PrivateGroup)              // 客户路由
 		exampleRouter.InitFileUploadAndDownloadRouter(PrivateGroup) // 文件上传下载功能路由

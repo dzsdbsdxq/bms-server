@@ -1,14 +1,14 @@
 package initialize
 
 import (
-	"bms-server/plugin/extends"
-	"bms-server/plugin/sns"
-	"fmt"
-
 	"bms-server/global"
 	"bms-server/middleware"
+	"bms-server/plugin/channel"
 	"bms-server/plugin/email"
+	"bms-server/plugin/extends"
+	"bms-server/plugin/sns"
 	"bms-server/utils/plugin"
+	"fmt"
 	"github.com/gin-gonic/gin"
 )
 
@@ -38,5 +38,6 @@ func InstallPlugin(Router *gin.Engine) {
 	// 888 为普通用户ID
 	PluginInit(PublicGroup, extends.CreateExtendsPlug())
 	PluginInit(PublicGroup, sns.CreateSnsPlug())
+	PluginInit(PublicGroup, channel.CreateChannelPlug())
 
 }

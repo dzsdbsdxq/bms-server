@@ -62,6 +62,7 @@ func (extendsService *ExtendsService) UpdateSysExtends(sysExtends *system.SysExt
 		"Type":   sysExtends.Type,
 		"Status": sysExtends.Status,
 		"Desc":   sysExtends.Desc,
+		"DType":  sysExtends.DType,
 	}
 	err = global.GVA_DB.Model(&system.SysExtends{}).Where("id = ?", sysExtends.ID).Updates(sysExtendsMap).Error
 	return err

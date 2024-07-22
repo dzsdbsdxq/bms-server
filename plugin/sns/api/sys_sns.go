@@ -21,13 +21,7 @@ func (s *SnsApi) GetValidateCode(c *gin.Context) {
 		response.FailWithMessage(err.Error(), c)
 		return
 	}
-	// 密码通过RSA解密
-	decodeData, err := utils.RSADecrypt([]byte(req.Mobile), []byte(config.RSAPrivateBytes))
-	if err != nil {
-		response.FailWithMessage(err.Error(), c)
-		return
-	}
-	valDetail, err := service.ServiceGroupApp.GetValidateCode(string(decodeData))
+	valDetail, err := service.ServiceGroupApp.GetValidateCode(utils.SimpleDecrypt(req.Mobile))
 	if err != nil {
 		response.FailWithMessage(err.Error(), c)
 		return
@@ -43,14 +37,8 @@ func (s *SnsApi) SendSMS(c *gin.Context) {
 		response.FailWithMessage(err.Error(), c)
 		return
 	}
-	// 密码通过RSA解密
-	decodeData, err := utils.RSADecrypt([]byte(req.Mobile), []byte(config.RSAPrivateBytes))
-	if err != nil {
-		response.FailWithMessage(err.Error(), c)
-		return
-	}
 
-	err = service.ServiceGroupApp.SendSMS(string(decodeData), req.Code)
+	err = service.ServiceGroupApp.SendSMS(utils.SimpleDecrypt(req.Mobile), req.Code)
 	if err != nil {
 		response.FailWithMessage(err.Error(), c)
 		return
@@ -66,15 +54,8 @@ func (s *SnsApi) LoginHandler(c *gin.Context) {
 		return
 	}
 
-	// 密码通过RSA解密
-	code, err := utils.RSADecrypt([]byte(req.Code), []byte(config.RSAPrivateBytes))
-	if err != nil {
-		response.FailWithMessage(err.Error(), c)
-		return
-	}
-
 	////验证手机验证码是否正确
-	openId, accessToken, err := service.ServiceGroupApp.CheckSMSCode(req.Mobile, string(code))
+	openId, accessToken, err := service.ServiceGroupApp.CheckSMSCode(req.Mobile, utils.SimpleDecrypt(req.Code))
 
 	if err != nil {
 		response.FailWithMessage(err.Error(), c)
