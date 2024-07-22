@@ -3,6 +3,7 @@ package utils
 import (
 	"crypto/md5"
 	"encoding/hex"
+	jsoniter "github.com/json-iterator/go"
 	"math/rand"
 	"strings"
 	"time"
@@ -40,4 +41,12 @@ func RandPass(lenNum int) string {
 
 	}
 	return str.String()
+}
+
+func Interface2string(v interface{}) string {
+	marshal, err := jsoniter.Marshal(v)
+	if err != nil {
+		return ""
+	}
+	return string(marshal)
 }

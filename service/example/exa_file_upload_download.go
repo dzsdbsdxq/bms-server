@@ -88,6 +88,24 @@ func (e *FileUploadAndDownloadService) GetFileRecordInfoList(info request.PageIn
 //@param: header *multipart.FileHeader, noSave string
 //@return: file model.ExaFileUploadAndDownload, err error
 
+func (e *FileUploadAndDownloadService) UploadFileSzTv(header *multipart.FileHeader, noSave string) (file example.ExaFileUploadAndDownload, err error) {
+	oss := upload.NewSzTvLocal()
+	filePath, key, uploadErr := oss.UploadFile(header)
+	if uploadErr != nil {
+		panic(uploadErr)
+	}
+	s := strings.Split(header.Filename, ".")
+	f := example.ExaFileUploadAndDownload{
+		Url:  filePath,
+		Name: header.Filename,
+		Tag:  s[len(s)-1],
+		Key:  key,
+	}
+	if noSave == "0" {
+		return f, e.Upload(f)
+	}
+	return f, nil
+}
 func (e *FileUploadAndDownloadService) UploadFile(header *multipart.FileHeader, noSave string) (file example.ExaFileUploadAndDownload, err error) {
 	oss := upload.NewOss()
 	filePath, key, uploadErr := oss.UploadFile(header)

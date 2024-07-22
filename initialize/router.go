@@ -47,11 +47,11 @@ func Routers() *gin.Engine {
 	// VUE_APP_BASE_PATH = http://localhost
 	// 然后执行打包命令 npm run build。在打开下面3行注释
 	//Router.Static("/favicon.ico", "./dist/favicon.ico")
-	//Router.Static("/assets", "./dist/assets")   // dist里面的静态资源
-	//Router.StaticFile("/", "./dist/index.html") // 前端网页入口页面
+	Router.Static("/assets", "./dist/assets")   // dist里面的静态资源
+	Router.StaticFile("/", "./dist/index.html") // 前端网页入口页面
 
 	//加载模版
-	Router.Static("templates", "templates/wheels")
+	//Router.Static("templates", "templates/wheels")
 	//Router.LoadHTMLGlob("./templates/*/*/*.html")
 	//设置模版常量
 
@@ -93,33 +93,13 @@ func Routers() *gin.Engine {
 		systemRouter.InitSysDictionaryDetailRouter(PrivateGroup)    // 字典详情管理
 		systemRouter.InitAuthorityBtnRouterRouter(PrivateGroup)     // 字典详情管理
 		systemRouter.InitSysExportTemplateRouter(PrivateGroup)      // 导出模板
+		systemRouter.InitSysExtendsRouter(PrivateGroup)             //扩展字段
+		systemRouter.InitSysExtendsDetailRouter(PrivateGroup)       //扩展字段详情
+		systemRouter.InitSysChannelDistrubuteRouter(PrivateGroup)   //壹深圳下载分发
+		systemRouter.InitSysSnsRecordRouter(PrivateGroup)           //短信记录注册
 		exampleRouter.InitCustomerRouter(PrivateGroup)              // 客户路由
 		exampleRouter.InitFileUploadAndDownloadRouter(PrivateGroup) // 文件上传下载功能路由
-
-	}
-	{
-		membersRouter := router.RouterGroupApp.Members
-		membersRouter.InitSysMembersRouter(PrivateGroup)
-	}
-	{
-		integralRouter := router.RouterGroupApp.Integral
-		integralRouter.InitSysIntegralRouter(PrivateGroup)
-	}
-	{
-		wheelRouter := router.RouterGroupApp.Wheel
-		wheelRouter.InitSysWheelsRouter(PrivateGroup)
-	}
-	{
-		wheelPrizesRouter := router.RouterGroupApp.WheelPrizes
-		wheelPrizesRouter.InitSysWheelPrizesRouter(PrivateGroup)
-	}
-	{
-		wheelAddressRouter := router.RouterGroupApp.WheelAddress
-		wheelAddressRouter.InitSysWheelAddressRouter(PrivateGroup)
-	}
-	{
-		wheelRecordsRouter := router.RouterGroupApp.WheelRecords
-		wheelRecordsRouter.InitSysWheelRecordsRouter(PrivateGroup)
+		exampleRouter.InitFlushCdnRouter(PrivateGroup)              //刷新CDN
 	}
 
 	global.GVA_LOG.Info("router register success")

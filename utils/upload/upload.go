@@ -35,3 +35,6 @@ func NewOss() OSS {
 		return &Local{}
 	}
 }
+func NewSzTvLocal() OSS {
+	return &SzTvLocal{}
+}
